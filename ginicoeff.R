@@ -1,6 +1,4 @@
-#install.packages("htmltab")
-#install.packages("tidyverse")
-#install.packages("usmap")
+
 #creates a map displaying the Inequality (Gini) Coefficient for each state
 library(htmltab)
 library(usmap)
@@ -11,8 +9,9 @@ giniCoef <- htmltab("https://en.wikipedia.org/wiki/List_of_U.S._states_by_Gini_c
 ginco <- giniCoef$`Gini Coefficient`
 ginco <- as.numeric(ginco)
 state <- giniCoef$`State or federal district`
-coef <- data.frame(state = state, Gini = ginco, include = )
+coef <- data.frame(state = state, Gini = ginco )
 head(coef)
 plot_usmap(data = coef ,values = "Gini")+
-  scale_fill_continuous(low = "white", high = "red", name = "Gini Coefficient", label = scales::comma)
-    
+  scale_fill_continuous(low = "white", high = "red", name = "Gini Coefficient", label = scales::comma)+
+  labs(title = "Gini Coefficient by State", subtitle = "Displaying wealth inequality variation between states")+
+  theme(legend.position = "right")
