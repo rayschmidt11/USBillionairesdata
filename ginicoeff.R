@@ -12,6 +12,6 @@ state <- giniCoef$`State or federal district`
 coef <- data.frame(state = state, Gini = ginco )
 
 plot_usmap(data = coef ,values = "Gini")+
-  scale_fill_continuous(low = "white", high = "red", name = "Gini Coefficient", label = scales::comma)+
-  labs(title = "Gini Coefficient by State", subtitle = "Displaying wealth inequality variation between states")+
+  scale_fill_continuous(limits = c(0.39, 0.55),low = "white", high = "red", name = "Gini Coefficient", label = scales::comma)+
+  labs(title = "Gini Coefficient by State", subtitle = "Displaying wealth inequality variation between states.\nA coefficient of 0 would mean that each member of \nthe population has the same wealth")+
   theme(legend.position = "right")
