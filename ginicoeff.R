@@ -1,4 +1,4 @@
-
+#Please make sure to run package installer before running this script
 #creates a map displaying the Inequality (Gini) Coefficient for each state
 library(htmltab)
 library(usmap)
@@ -10,7 +10,7 @@ ginco <- giniCoef$`Gini Coefficient`
 ginco <- as.numeric(ginco)
 state <- giniCoef$`State or federal district`
 coef <- data.frame(state = state, Gini = ginco )
-head(coef)
+
 plot_usmap(data = coef ,values = "Gini")+
   scale_fill_continuous(low = "white", high = "red", name = "Gini Coefficient", label = scales::comma)+
   labs(title = "Gini Coefficient by State", subtitle = "Displaying wealth inequality variation between states")+
